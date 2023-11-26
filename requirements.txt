@@ -1,3 +1,8 @@
+--upgrade pip
 pandas 
+ -U scikit-learn
+matplotlib
+numpy
 --upgrade python-telegram-bot
 --upgrade joblib
+
