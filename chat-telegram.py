@@ -5,6 +5,8 @@ import pandas as pd
 import os
 import shutil
 import pickle
+import modelo_rendimiento_academico as modelon
+
 archivo_a_copiar = os.path.join(os.path.dirname(__file__),'modelo_rendimiento_academico.py')
 directorio_destino = f"{joblib.__path__[0]}/"
 
@@ -19,7 +21,8 @@ shutil.copy(archivo_a_copiar, os.path.join(directorio_destino, nuevo_nombre))
 #modelo_path = os.path.join(os.path.dirname(__file__), 'modelo_rendimiento_academico.pkl')
 model_path=os.path.join(directorio_destino,"modelo_rendimiento_academico.pkl")
 print(f"1..{model_path}")
-model = joblib.load("modelo_rendimiento_academico.pkl")
+#
+# model = joblib.load("modelo_rendimiento_academico.pkl")
 
 
 CHECK_THIS_OUT = "check-this-out"
@@ -44,7 +47,7 @@ async def predict_score(update, context):
         data = [float(x) for x in message.split(" ")]
 
         # Realizar la predicción con el modelo
-        prediction = model.predict([data])
+        prediction = modelon.predict([data])
         await update.message.reply_text(f"Tu posible rendimiento académico es: {prediction[0]}")
 
     except Exception as e:
