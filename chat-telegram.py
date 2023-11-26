@@ -7,24 +7,23 @@ import shutil
 import pickle
 import modelo_rendimiento_academico as modelon
 
-archivo_a_copiar = os.path.join(os.path.dirname(__file__),'modelo_rendimiento_academico.py')
-directorio_destino = f"{joblib.__path__[0]}/"
+#archivo_a_copiar = os.path.join(os.path.dirname(__file__),'modelo_rendimiento_academico.py')
+#directorio_destino = f"{joblib.__path__[0]}/"
 
 
 # Nuevo nombre para el archivo copiado en el destino
-nuevo_nombre = 'modelo_rendimiento_academico.pkl'
-print(f"...{archivo_a_copiar}")
-print(f"...{directorio_destino}")
+#nuevo_nombre = 'modelo_rendimiento_academico.pkl'
+#print(f"...{archivo_a_copiar}")
+#print(f"...{directorio_destino}")
 # Copiar el archivo con un nuevo nombre en el directorio de destino
-shutil.copy(archivo_a_copiar, os.path.join(directorio_destino, nuevo_nombre))
+##shutil.copy(archivo_a_copiar, os.path.join(directorio_destino, nuevo_nombre))
 # Cargar el modelo entrenado
 #modelo_path = os.path.join(os.path.dirname(__file__), 'modelo_rendimiento_academico.pkl')
-model_path=os.path.join(directorio_destino,"modelo_rendimiento_academico.pkl")
-print(f"1..{model_path}")
+#model_path=os.path.join(directorio_destino,"modelo_rendimiento_academico.pkl")
+#print(f"1..{model_path}")
 #
-# model = joblib.load("modelo_rendimiento_academico.pkl")
-
-
+joblib.dump(modelon.model,"modelo_rendimiento_academico.pkl")
+model  = joblib.load("modelo_rendimiento_academico.pkl")
 CHECK_THIS_OUT = "check-this-out"
 USING_ENTITIES = "using-entities-here"
 USING_KEYBOARD = "using-keyboard-here"
@@ -47,7 +46,7 @@ async def predict_score(update, context):
         data = [float(x) for x in message.split(" ")]
 
         # Realizar la predicción con el modelo
-        prediction = modelon.predict([data])
+        prediction = model.predict([data])
         await update.message.reply_text(f"Tu posible rendimiento académico es: {prediction[0]}")
 
     except Exception as e:

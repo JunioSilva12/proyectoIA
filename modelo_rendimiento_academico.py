@@ -28,7 +28,7 @@ model.fit(X_train, y_train)
 
 # Realizar predicciones en el conjunto de prueba
 predictions = model.predict(X_test)
-print(predictions)
+#print(predictions)
 # Calcular el error cuadrático medio
 mse = mean_squared_error(y_test, predictions)
 print(f'Error cuadrático medio: {mse}')
