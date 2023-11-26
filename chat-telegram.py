@@ -76,4 +76,4 @@ application.add_handler(MessageHandler(~filters.COMMAND & filters.TEXT, predict_
 
 # Iniciar el bot
 application.run_polling(allowed_updates=Update.ALL_TYPES)
-application.idle()
+#application.idle()
