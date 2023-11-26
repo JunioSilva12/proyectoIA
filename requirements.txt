@@ -1,0 +1,3 @@
+pandas 
+--upgrade python-telegram-bot
+--upgrade joblib
