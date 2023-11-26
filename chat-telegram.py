@@ -5,7 +5,7 @@ import pandas as pd
 import os
 import shutil
 
-archivo_a_copiar = 'modelo_rendimiento_academico.pkl'
+archivo_a_copiar = os.path.join(os.path.dirname(__file__),'modelo_rendimiento_academico.py')
 directorio_destino = f"{joblib.__path__[0]}/"
 
 
