@@ -10,7 +10,7 @@ directorio_destino = f"{joblib.__path__[0]}/"
 
 
 # Nuevo nombre para el archivo copiado en el destino
-nuevo_nombre = 'modelo_rendimiento_academico.py'
+nuevo_nombre = 'modelo_rendimiento_academico.pkl'
 print(f"...{archivo_a_copiar}")
 print(f"...{directorio_destino}")
 # Copiar el archivo con un nuevo nombre en el directorio de destino
