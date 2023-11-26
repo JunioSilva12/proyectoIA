@@ -10,7 +10,7 @@ directorio_destino = f"{joblib.__path__[0]}/"
 
 
 # Nuevo nombre para el archivo copiado en el destino
-nuevo_nombre = 'modelo_rendimiento_academico.pkl'
+nuevo_nombre = 'modelo_rendimiento_academico.py'
 print(f"...{archivo_a_copiar}")
 print(f"...{directorio_destino}")
 # Copiar el archivo con un nuevo nombre en el directorio de destino
@@ -19,7 +19,7 @@ shutil.copy(archivo_a_copiar, os.path.join(directorio_destino, nuevo_nombre))
 #modelo_path = os.path.join(os.path.dirname(__file__), 'modelo_rendimiento_academico.pkl')
 
 
-model = joblib.load("modelo_rendimiento_academico.pkl")
+
 CHECK_THIS_OUT = "check-this-out"
 USING_ENTITIES = "using-entities-here"
 USING_KEYBOARD = "using-keyboard-here"
@@ -34,7 +34,7 @@ async def  start(update: Update, context: ContextTypes.DEFAULT_TYPE)-> None:
 
 # Definir la función para manejar los mensajes de texto
 async def predict_score(update, context):
-
+    model = joblib.load("modelo_rendimiento_academico.py")
     try:
         # Obtener los datos del mensaje del usuario
         message = update.message.text
