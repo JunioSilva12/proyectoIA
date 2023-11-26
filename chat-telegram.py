@@ -3,9 +3,22 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, helpers
 import joblib
 import pandas as pd
 import os
+import shutil
+
+archivo_a_copiar = os.path.join(os.path.dirname(__file__), 'modelo_rendimiento_academico.pkl')
+directorio_destino = '/opt/render/project/src/.venv/lib/python3.7/site-packages/joblib/'
+
+
+# Nuevo nombre para el archivo copiado en el destino
+nuevo_nombre = 'modelo_rendimiento_academico.pkl'
+
+# Copiar el archivo con un nuevo nombre en el directorio de destino
+shutil.copy(archivo_a_copiar, os.path.join(directorio_destino, nuevo_nombre))
 # Cargar el modelo entrenado
-modelo_path = os.path.join(os.path.dirname(__file__), 'modelo_rendimiento_academico.pkl')
-print(f"...{modelo_path}")
+#modelo_path = os.path.join(os.path.dirname(__file__), 'modelo_rendimiento_academico.pkl')
+print(f"...{archivo_a_copiar}")
+print(f"...{directorio_destino}")
+
 model = joblib.load("modelo_rendimiento_academico.pkl")
 CHECK_THIS_OUT = "check-this-out"
 USING_ENTITIES = "using-entities-here"
