@@ -6,7 +6,7 @@ import pandas as pd
 # Cargar el modelo entrenado
 #modelo_path = os.path.join(os.path.dirname(__file__), 'modelo_rendimiento_academico.pkl')
 
-model = joblib.load("/opt/render/project/src/modelo_rendimiento_academico.pkl")
+model = joblib.load("modelo_rendimiento_academico.pkl")
 CHECK_THIS_OUT = "check-this-out"
 USING_ENTITIES = "using-entities-here"
 USING_KEYBOARD = "using-keyboard-here"
