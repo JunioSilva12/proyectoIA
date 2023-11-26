@@ -2,9 +2,11 @@ from telegram.ext import  Application, CallbackQueryHandler,  Updater, CommandHa
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, helpers
 import joblib
 import pandas as pd
-
+import os
 # Cargar el modelo entrenado
-model = joblib.load('modelo_rendimiento_academico.pkl')
+modelo_path = os.path.join(os.path.dirname(__file__), 'modelo_rendimiento_academico.pkl')
+
+model = joblib.load(modelo_path)
 CHECK_THIS_OUT = "check-this-out"
 USING_ENTITIES = "using-entities-here"
 USING_KEYBOARD = "using-keyboard-here"
