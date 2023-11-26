@@ -1,1 +1,1 @@
-worker: python proyectoIA.py
+worker: python chat-telegram.py
