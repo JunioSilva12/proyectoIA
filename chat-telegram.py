@@ -4,21 +4,23 @@ import joblib
 import pandas as pd
 import os
 import shutil
-
+import pickle
 archivo_a_copiar = os.path.join(os.path.dirname(__file__),'modelo_rendimiento_academico.py')
 directorio_destino = f"{joblib.__path__[0]}/"
 
 
 # Nuevo nombre para el archivo copiado en el destino
-nuevo_nombre = 'modelo_rendimiento_academico.pkl'
+nuevo_nombre = 'modelo_rendimiento_academico.py'
 print(f"...{archivo_a_copiar}")
 print(f"...{directorio_destino}")
 # Copiar el archivo con un nuevo nombre en el directorio de destino
 shutil.copy(archivo_a_copiar, os.path.join(directorio_destino, nuevo_nombre))
 # Cargar el modelo entrenado
 #modelo_path = os.path.join(os.path.dirname(__file__), 'modelo_rendimiento_academico.pkl')
-
+model_path=os.path.join(directorio_destino,"modelo_rendimiento_academico.pkl")
+print(f"1..{model_path}")
 model = joblib.load("modelo_rendimiento_academico.pkl")
+
 
 CHECK_THIS_OUT = "check-this-out"
 USING_ENTITIES = "using-entities-here"
